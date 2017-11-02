@@ -1,0 +1,66 @@
+#!/usr/bin/perl
+
+#use lib $Conf::config_modules_folder;
+
+CMD::cmd_lpdelay(0);
+
+use Alias;
+use Connect;
+use Reaction;
+use Rescue;
+use Dodge;
+use Group;
+use PromptProcessing;
+use Inventory;
+use Mws;
+use Order;
+use Speedw;
+use Target;
+use Stuff;
+use Autoheal;
+#use Exchange;
+use Sim;
+use Bstuff;
+use Telling;
+use Mapper;
+use Pk;
+use Turnir;
+use fan;
+Status::new_sv($switch2 = "[");
+Status::new_sv($Target::curset,1,15); $Target::curset = $Target::curset + 1 - 1;
+Status::new_sv($switch1 = "|");
+Status::new_sv($Target::curtar,1,15); $Target::curtar = $Target::curtar + 1 - 1;
+Status::new_sv($switch3 = "][ ");
+Status::new_sv($Target::tname,25,15);
+Status::new_sv($switch4 = "][");
+Status::new_sv($Common::resccommand,3,15);
+Status::new_sv($t8 = "][");
+Status::new_sv($Rescue::resc,1,15);
+Status::new_sv($t1 = "] лут[");
+Status::new_sv($Common::autoloot,1,15); $Common::autoloot += 0;
+Status::new_sv($t2 = "] воор[");
+
+Status::new_sv($Inventory::mode,4,15);
+
+
+Status::new_sv($t4 = "] бр[");
+Status::new_sv($Dodge::dodgeon,1,15); $Dodge::dodgeon += 0;
+Status::new_sv($Dodge::active,1,15); $Dodge::active += 0;
+Status::new_sv($t5 = "] ");
+Status::new_sv($Common::dodge,5,15);
+Status::new_sv($t6 = " [");
+Status::new_sv($Common::clock,5,15);
+Status::new_sv($t7 = "]");
+
+msg "$Conf::config_name v$Conf::config_version by kilnik";
+
+Keymap::sysbind("M-up",\&LE::up_history);
+Keymap::sysbind("M-down",\&LE::down_history);
+Keymap::sysbind("up",\&LE::history_search_backward);
+Keymap::sysbind("down",\&LE::history_search_forward);
+
+echo '' for (1..5);
+__DATA__
+[history]
+#ali g {взять $1 сум;дать $1 .динь}
+g ножн;g ужас;g сверк.бра;g пояс.пря;g охва;g симво;g перч.крас;g сверк.сап;g рога;g платье;g колье;g колье;g адаман;g дальн
