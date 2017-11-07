@@ -45,7 +45,7 @@ sub mkabbrev() {
 sub print_alias($) {
   no strict 'refs';
   my $an=shift;
-  if (defined(@{"U::$an"})) {
+  if (@{"U::$an"}) {
     my $d=\@{"U::$an"};
     CL::msg(($U::_nosave_aliases{$an} ? "*" : "") . "{$an}={" . $d->[0] . "}");
   } else {
